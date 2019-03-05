@@ -29,9 +29,9 @@ spec:
         - mountPath: /etc/prometheus/prometheus.yml
           name: prometheus-config
           subPath: prometheus.yml
-        - mountPath: /etc/prometheus/alert.rules.yml
-          name: prometheus-config
-          subPath: alert.rules.yml
+#        - mountPath: /etc/prometheus/alert.rules.yml
+#          name: prometheus-config
+#          subPath: alert.rules.yml
       volumes:
         - name: prometheus-config
           configMap:
@@ -40,6 +40,6 @@ spec:
               - key: prometheus.yml
                 path: prometheus.yml
                 mode: 0644
-              - key: alert.rules.yml
-                path: alert.rules.yml
-                mode: 0644
+#              - key: alert.rules.yml
+#                path: alert.rules.yml
+#                mode: 0644
