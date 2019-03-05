@@ -18,14 +18,10 @@ data:
       - job_name: "gateway"
         scrape_interval: 5s
         dns_sd_configs:
-          - names: ['gateway.openfaas']
-            port: 8080
+          - names: ['ceph-exporter']
+            port: 9128
             type: A
             refresh_interval: 5s
-      - job_name: 'docker-daemon'
-        scrape_interval: 5s
-        static_configs:
-          - targets: ['10.22.14.10:9999','10.22.14.11:9999','10.22.14.12:9999','10.22.15.10:9999','10.22.15.11:9999','10.22.15.12:9999']
 #    alerting:
 #      alertmanagers:
 #      - static_configs:
