@@ -1,3 +1,4 @@
+---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -37,3 +38,18 @@ spec:
       - name: ceph-cfg
         hostPath:
           path: /opt/rook/rook-ceph
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ceph-exporter
+  namespace: rook-ceph
+  labels:
+    k8s-app: ceph-exporter
+spec:
+  selector:
+    app: ceph-exporter
+  ports:
+  - name: http-metrics
+    port: 9128
+    targetPort: 9128
