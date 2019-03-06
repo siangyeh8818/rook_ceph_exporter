@@ -10,12 +10,10 @@ data:
     global:
       scrape_interval:     15s
       evaluation_interval: 15s
-      external_labels:
-          monitor: 'faas-monitor'
     rule_files:
         - 'alert.rules.yml'
     scrape_configs:
-      - job_name: "gateway"
+      - job_name: "rook-ceph"
         scrape_interval: 5s
         dns_sd_configs:
           - names: ['ceph-exporter']
