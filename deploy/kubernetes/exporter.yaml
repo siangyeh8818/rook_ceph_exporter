@@ -38,6 +38,13 @@ spec:
       - name: ceph-cfg
         hostPath:
           path: /opt/rook/rook-ceph
+      nodeSelector:
+        ceph-mgr: enabled
+      tolerations:
+      - effect: NoExecute
+        key: dedicated
+        operator: Equal
+        value: storage-node
 ---
 apiVersion: v1
 kind: Service
